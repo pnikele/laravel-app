@@ -9,7 +9,7 @@ class Reader_installation extends Model
 {
     use HasFactory;
 
-    public function meter_readings()
+    public function meterReading()
     {
         return $this->hasMany(Meter_reading::class);
     }

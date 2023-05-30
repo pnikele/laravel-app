@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('city', 60);
             $table->string('street', 60);
             $table->integer('house_number');
-            $table->integer('apartment_number');
-            $table->string('house_name', 60);
+            $table->integer('apartment_number')->nullable();;
+            $table->string('house_name', 60)->nullable();;
             $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->restrictOnDelete();
             $table->timestamps();
         });

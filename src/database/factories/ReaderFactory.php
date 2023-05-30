@@ -17,7 +17,9 @@ class ReaderFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'identifier'=>fake()->numerify('##########'),
+            'manufacturer'=>fake()->company(),
+            'manufature_date'=>fake()->date(),
         ];
     }
 }
