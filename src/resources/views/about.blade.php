@@ -1,5 +1,5 @@
 <x-layout>
-    <main style="  box-sizing: border-box;width:100% ;padding:20px;height:100%;">
+    <main style="  box-sizing: border-box;width:100% ;padding:20px;height:100%;flex:5;">
         <div id="card" style=" box-sizing: border-box;margin:0;padding:25px;height:100%">
             <h2>Par Mums</h2>
             <div class="body" style="color:gray;font-size:16px">

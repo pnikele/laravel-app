@@ -1,5 +1,5 @@
 <x-layout>
-    <main style="  box-sizing: border-box;width:100% ;padding:20px;height:100%;">
+    <main style="  box-sizing: border-box;width:100% ;padding:20px;height:100%;flex:5;">
         <div id="card" style=" box-sizing: border-box;margin:0;padding:25px;height:100%">
             <h3 class="font-normal text-xl py-4 -ml-5 border-l-4">
                 Kontakti
@@ -18,5 +18,4 @@
             </div>
         </div>
     </main>
-    
-    </x-layout>
+</x-layout>

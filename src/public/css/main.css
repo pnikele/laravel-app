@@ -21,6 +21,9 @@ html{
     height: 100%;
     width: 100%;
     margin: 0;
+    padding: 0;
+
+
 }
 
 body{
@@ -29,17 +32,22 @@ body{
     box-sizing: border-box;
     margin: 0px;
     background-color:#ffffff;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     width: 100%;
+
+
 }
 footer{
   background-color: #B0E0E6;
   margin-top: auto;
-  border-top: solid;
-  border-color:#29585D;
+  /* border-top: solid;
+  border-color:#29585D; */
+  box-shadow: 0 -1px 5px  #29585D;
   height: 40px;
 }
+
 
 nav{
     min-height: 50px;
@@ -48,11 +56,13 @@ nav{
     width: 100%; /* Full width */
     overflow: hidden;
     background-color:#B0E0E6;
-    border-bottom: solid;
-    border-color:#29585D;
+    /* border-bottom: solid; */
+    /* border-color:#29585D; */
     padding: 10px;
     box-sizing: border-box;
     z-index: 99;
+    box-shadow: 0 2px 5px  #29585D;
+    
 }
 
 /* main{
@@ -60,11 +70,12 @@ nav{
 } */
 
 
-#button-nav {
+#button-nav,#button-nav-menu {
   position: relative;
   overflow: hidden;
   cursor: pointer;
 }
+
 #myButton{
   position: relative;
   overflow: hidden;
@@ -114,19 +125,11 @@ nav{
   left: -70px;
 }
 
-#myButton:active {
+#myButton:active,#button-nav:active  {
   transform: scale(.98);
 }
 
-#button-nav:active {
-  transform: scale(.98);
-}
-  
-#button-nav:hover a {
-  color: white;
-}
-
-#myButton:hover a {
+#button-nav:hover,#myButton:hover a {
   color: white;
 }
 
@@ -153,10 +156,25 @@ nav{
 }
 
 
-@media screen and (min-width: 2000px) {
-  .button {
+/* @media screen and (min-width: 2000px) {
+  .button, .nav_active,.nav_active_right  {
     font-size: xx-large;
   }
+} */
+
+.nav_active_right{
+  background-color: #00ACCC;
+  color: white;
+  float: right;
+  border-radius: 7px;
+  box-sizing: border-box;
+  padding: 7px 7px;
+}
+
+.nav_active_right#button-nav a{
+
+  color: white;
+
 }
 
 .button_right {
@@ -166,18 +184,22 @@ nav{
   box-sizing: border-box;
   padding: 7px 7px;
 }
+.badge{
+  float: right;
+}
 
 @media screen and (max-width: 500px) {
-  .button_right {
+  .button_right, .nav_active_right,.badge {
     float: left;
   }
 }
 
-@media screen and (min-width: 2000px) {
+/* @media screen and (min-width: 2000px) {
   .button_right {
     font-size: xx-large;
   }
-}
+} */
+
 
 main#announc{
   height: 100%;
@@ -194,6 +216,8 @@ main#announc{
     flex-wrap: wrap;
     height:100%;
     max-width: 100%;
+    position: relative;
+
 }
 
 .slidenpic{
@@ -209,11 +233,51 @@ main#announc{
   color: #f2f2f2;
   border: solid;
   border-width: thin;
-  border-color: white;
+  border-color: #B0E0E6;
   transition: 0.4s;
   padding: 3px 10px;
   font-size: large;
+
+}
+
+.popup_footer_btns {
+  display: flex; 
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 600px) {
+  .popup_footer_btns {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+button#closePopup  {
+  border-radius: 5px;
+  background-color: #B0E0E6;
+  color: #558388;
+  border: solid;
+  border-width: thin;
+  border-color: #00ACCC;
+  transition: 0.4s;
+  padding: 3px 10px;
+  margin-right: 5px;
 } 
+
+@media screen and (max-width: 600px) {
+  button#closePopup {
+    font-size: x-small;
+    padding: 1px 3px;
+  }
+}
+@media screen and (max-width: 600px) {
+  #default_button {
+    font-size: x-small;
+    padding: 1px 3px;
+    margin-left:-20px;
+    margin-right: -20px;
+  }
+}
 
 
 /* a#defaultback {
@@ -232,6 +296,15 @@ main#announc{
   border-radius: 5px;
   background-color:#B0E0E6;
   color:  #558388;
+  border: solid;
+  border-width: thin;
+  border-color: #00ACCC;
+}
+
+button#closePopup:hover {
+  border-radius: 5px;
+  background-color: #00ACCC;
+  color: #f2f2f2;
   border: solid;
   border-width: thin;
   border-color: #00ACCC;
@@ -481,6 +554,105 @@ background-color: #f2f2f2;
   font-size: 16px;
 }
 }
+
+h1#popup{
+  font-size:10px;
+  text-align:center;  
+  color:  #558388;
+  margin-left:-20px;
+  margin-right: -20px;
+
+}
+
+
+@media screen and (min-width: 600px) {
+  h1#popup{
+      font-size: calc(10px + 11 * ((100vw - 600px) / 600));
+
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  h1#popup{
+  font-size: 24px;
+}
+}
+
+    .popup {
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+      display: none;
+  }
+  .popup-content {
+      background-color: white;
+      margin: 7% auto;
+      padding: 20px;
+      border: 1px solid #888888;
+      width: 20%;
+      font-weight: bolder;
+      border-radius: 7px;
+      height: 100%;
+  }
+  .popup-content button {
+      display: block;
+      margin: 0;
+  }
+  .show {
+      display: block;
+  }
+
+
+  img.menu_button,img.human_icon{
+    filter: invert(47%) sepia(16%) saturate(774%) hue-rotate(138deg) brightness(97%) contrast(87%);
+  }
+
+
+
+  button.menu_button{
+    height: 25px;
+    width: 25px;
+    margin-right:5px;
+    background-color: #E6F4F1;  
+    border-radius: 7px;
+    border-color:azure;
+}
+
+
+img.human_icon{
+  height: 25px;
+  width: 25px;
+  margin-right:5px;
+}
+
+
+
+@media screen and (min-width: 600px) {
+  button.menu_button,img.human_icon{
+        height: calc(25px + 7 * ((100vw - 600px) / 600));
+        width: calc(25px + 7 * ((100vw - 600px) / 600));
+
+    }
+  }
+
+@media screen and (min-width: 1200px) {
+    button.menu_button,img.human_icon {
+      height: 32px;
+      width: 32px;
+}
+}
+
+.placesidenav{
+  flex:1; 
+  background-color:#E9FFFF; 
+  box-shadow: 1px 0 5px #888;
+}
+
 
 
 

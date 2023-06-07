@@ -18,9 +18,9 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         //Address::factory(5)->create();
-        Contact::factory(5)->create();
-        // Reader_installation::factory(3)
-        //     ->has(Meter_reading::factory()->count(3))
-        //     ->create();
+        // Contact::factory(5)->create();
+        Reader_installation::factory(3)
+            ->has(Meter_reading::factory()->count(3))
+            ->create();
     }
 }

@@ -1,7 +1,6 @@
 <x-layout>
     <body>
-        
-    <main id="mainannounc">
+    <main id="mainannounc" style="flex:5;">
         <div class="content">
             <div class="slidenpic">
                 <img src="/images/pexels-daniel-kux-932320.jpg" alt="DropPicture">
@@ -42,7 +41,7 @@
                 @include ('announcements.card')
             </div>
             @empty
-                <div>No projects yet.</div>
+                <div>Nav paziņojumu.</div>
             @endforelse
         </div>
     </main>
