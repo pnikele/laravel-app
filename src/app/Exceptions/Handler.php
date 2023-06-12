@@ -2,7 +2,14 @@
 
 namespace App\Exceptions;
 
+use Clockwork\Request\Request;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\UnauthorizedException;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
+
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -24,7 +31,22 @@ class Handler extends ExceptionHandler
     public function register(): void
     {
         $this->reportable(function (Throwable $e) {
-            //
+            
         });
+
+        $this->renderable(function (NotFoundHttpException $e, $request) {
+            return redirect()->route('home');
+        });
+
+        $this->renderable(function (AccessDeniedHttpException $e, $request) {
+            return redirect('/addresses');
+        });
+        
     }
+    
+    
+
+    
+
+    
 }

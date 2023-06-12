@@ -1,0 +1,150 @@
+#table,#table2 {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #table td, #table th, #table2 td, #table2 th{
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+#table2 td a:hover{
+  color: gray;
+  }
+  
+  #table tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #table tr:hover {background-color: #ddd;}
+  
+  #table th,#table2 th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #29585D;
+    color: white;
+  }
+
+  .button_right2 {
+    float: right;
+    text-decoration: none;
+    border-radius: 7px;
+    box-sizing: border-box;
+    padding: 7px 7px;
+  }
+
+  @media screen and (max-width: 500px) {
+    .button_right2{
+      float: left;
+      margin-right: 10px;
+    }
+  }
+  #default_button2 {
+    border-radius: 5px;
+    background-color: #00ACCC;
+    color: #f2f2f2;
+    border: solid;
+    border-width: thin;
+    border-color: #B0E0E6;
+    transition: 0.4s;
+    padding: 3px 10px;
+    font-size: large;
+  
+  }
+
+  #default_button_form {
+    border-radius: 5px;
+    background-color: #00ACCC;
+    color: #f2f2f2;
+    border: solid;
+    border-width: thin;
+    border-color: #B0E0E6;
+    transition: 0.4s;
+    padding: 3px 10px;
+    font-size: large;
+  }
+  
+
+  @media screen and (max-width: 600px) {
+    #default_button_form {
+      font-size: x-small;
+    }
+}
+  
+
+  @media screen and (max-width: 600px) {
+    #default_button2 {
+      font-size: x-small;
+    }
+}
+
+.form{
+  display:block;
+
+}
+
+.form > div {
+  box-sizing: border-box;
+  width: 50%;
+  display: flex; 
+  
+}
+
+a.sidenav_item {
+  color: #558388;
+}
+
+.sidenav_div{
+padding-top:10px;
+padding-bottom:10px;
+width:100%; box-shadow: 0 1px 4px  #29585D;
+cursor: pointer;
+}
+
+.sidenav_div:hover{
+  background-color:#D9EFF0;
+  
+}
+
+.sidenav_div:hover a{
+  color:#BDC6C8;
+}
+
+.sidenav_div_active{
+  background-color:#c6dbdc;
+  padding-top:10px;
+  padding-bottom:10px;
+  width:100%; box-shadow: 0 1px 4px  #29585D;
+  cursor: pointer;
+
+}
+
+.sidenav_div_active a{
+  color:#ECF6F7;
+
+}
+
+.form_footer_btns {
+  display: flex; 
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 600px) {
+  .form_footer_btns {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* label.form {
+
+} */
+
+@media screen and (max-width: 600px) {
+  label.form {
+    display: flex;
+    justify-content: center;
+  }
+}
+

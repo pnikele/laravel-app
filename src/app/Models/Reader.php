@@ -13,4 +13,11 @@ class Reader extends Model
     {
         return $this->hasOne(Reader_installation::class);
     }
+
+    // public function reader_installations()
+    // {
+    //     return $this->belongsTo(Reader_installation::class);
+    // }
+
+    
 }

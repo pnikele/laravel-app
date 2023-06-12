@@ -10,6 +10,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
     <link rel="stylesheet" type="text/css" href="{{url('css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url('css/auth.css')}}">
     <script type="text/javascript" src="{{ URL::asset('js/main.js') }}"></script>
     <title>Skaitītāju rādījumi</title>
 </head>
@@ -75,7 +76,15 @@
             {{-- side navigation --}}
             
             {{-- <div id="sidenav" style=" flex:1; background-color:#E9FFFF; box-shadow: 1px 0 5px #888;"></div> --}}
-            <div id="placesidenav"></div>
+            <div id="placesidenav">
+                  <div class="{{ (request()->is('addresses*')) ? 'sidenav_div_active' : 'sidenav_div' }}" onclick="window.location.href ='/addresses';" >
+                    <a style="padding-left: 10px; text-decoration:none;font-weight: bold;" class="sidenav_item" href="#">Adreses</a>
+                  </div>
+
+                  <div class="sidenav_div" >
+                    <a style="padding-left: 10px; text-decoration:none;font-weight: bold;" class="sidenav_item"  href="#">Cits</a>
+                  </div>
+            </div>
           @endauth
           {{ $slot }}
         </div>

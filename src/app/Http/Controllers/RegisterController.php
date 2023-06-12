@@ -20,15 +20,14 @@ class RegisterController extends Controller
             'password' => 'required|min:8|max:255',
             'password_confirmation' => 'required|same:password',
         ],[
-            'password.required' =>'Paroles lauks ir jāizpilda obligāts.',
-            'email.required' =>'E-pasta lauks ir jāizpilda obligāts.',
+            'password.required' =>'Paroles lauks ir jāaizpilda obligāti.',
+            'email.required' =>'E-pasta lauks ir jāaizpilda obligāti.',
             'email.email' =>'Jānorāda derīga e-pasta adrese.',
-            'name.required' => 'Vārda lauks ir jāizpilda obligāti.',
-            'surname.required' => 'Uzvārda lauks ir jāizpilda obligāti.',
+            'name.required' => 'Vārda lauks ir jāaizpilda obligāti.',
+            'surname.required' => 'Uzvārda lauks ir jāaizpilda obligāti.',
             'password.min' =>'Parolei jābūt vismaz 8 simboliem',
-            'password_confirmation.required' => 'Paroles atkārtošanas lauks jāizpilda obligāti',
-            
-
+            'password_confirmation.required' => 'Paroles atkārtošanas lauks jāaizpilda obligāti',
+    
         ]);
 
         auth()->login(User::create($attributes));

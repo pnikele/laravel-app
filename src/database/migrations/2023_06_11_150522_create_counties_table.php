@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('meter_readings', function (Blueprint $table) {
+        Schema::create('counties', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('reader_installation_id')->constrained()->cascadeOnUpdate()->restrictOnDelete();
-            $table->decimal('reading',8,3);
-            $table->dateTime('reading_datetime');
-            $table->timestamps();
+            $table->string('county_or_city');
         });
     }
 
@@ -25,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('meter_readings');
+        Schema::dropIfExists('counties');
     }
 };

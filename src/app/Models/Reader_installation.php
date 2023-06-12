@@ -14,5 +14,20 @@ class Reader_installation extends Model
         return $this->hasMany(Meter_reading::class);
     }
 
+    //     public function readers()
+    // {
+    //     return $this->belongsTo(Reader::class);
+    // }
 
+
+    
+
+    // public function addresses()
+    // {
+    //     return $this->hasMany(Address::class);
+    // }
+
+    // public function reader(){
+    //     return $this->hasOne(Reader::class);
+    // }
 }

@@ -15,12 +15,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     let ele = document.getElementById('placesidenav');
 
+    var elements = document.getElementsByClassName("sidenav_item");
+    console.log(elements)
+
+
     if(ele !== null){
         if(localStorage.getItem('buttonDisabled')===null)
         {
+            for(var i = 0; i < elements.length; i++) {
+                elements[i].style.display = "flex";
+            }
         console.log('tuks');
         ele.classList.add('placesidenav')
-        // ele.innerHTML += '<div id="sidenav" style=" flex:1; background-color:#E9FFFF; box-shadow: 1px 0 5px #888;"></div>';
         $("#placesidenav").load(window.location.href + " #placesidenav" );
 
         } else {
@@ -28,14 +34,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
         var isButtonDisabled = localStorage.getItem('buttonDisabled') === 'true';
             if (isButtonDisabled) {
                 console.log('true');
+                for(var i = 0; i < elements.length; i++) {
+                    elements[i].style.display = "none";
+                }
                 ele.classList.remove('placesidenav')
-                // nav.style.display = "flex"
-                // navbtn.classList.add('open')
             }else{
                 console.log('false');
                 ele.classList.add('placesidenav')
+                for(var i = 0; i < elements.length; i++) {
+                    elements[i].style.display = "flex";
+                }
             }
-            $("#placesidenav").load(window.location.href + " #placesidenav" );
         }
     }
   });
@@ -44,22 +53,38 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     var nav = document.getElementById("sidenav");
     var navbtn = document.getElementById("button-nav-menu");
+    var elements = document.getElementsByClassName("sidenav_item");
+
+
+
+    // console.log(navitems)
+
     let ele = document.getElementById('placesidenav');
     console.log(ele)
+    // console.log(navitems)
 
     if(ele.classList.contains('placesidenav')){
         localStorage.setItem('buttonDisabled', 'true');
         console.log(localStorage.getItem('buttonDisabled'));
-        location.reload()
+        ele.classList.remove('placesidenav')
+        for(var i = 0; i < elements.length; i++) {
+            elements[i].style.display = "none";
+        }
+        // location.reload()
 
     }else{
+        ele.classList.add('placesidenav')
+        for(var i = 0; i < elements.length; i++) {
+            elements[i].style.display = "flex";
+        }
         localStorage.setItem('buttonDisabled', 'false');
         console.log(localStorage.getItem('buttonDisabled'));
-        location.reload()
-
+        // location.reload()
 
     }
+    
   }
+
 
 
   

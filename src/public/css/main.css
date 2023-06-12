@@ -82,12 +82,20 @@ nav{
   cursor: pointer;
 }
   
+  #button-nav {
+    position: relative;
+    transition: all .45s ease-Out;
+    text-decoration: none;
+    color:  #558388;
+  }
+
   #button-nav a {
     position: relative;
     transition: all .45s ease-Out;
     text-decoration: none;
     color:  #558388;
   }
+
   #myButton a {
     position: relative;
     transition: all .45s ease-Out;
@@ -150,7 +158,7 @@ nav{
 }
 
 .nav_active#button-nav a{
-
+  text-decoration: none;
   color: white;
 
 }
@@ -186,6 +194,7 @@ nav{
 }
 .badge{
   float: right;
+  margin-left: 10px;
 }
 
 @media screen and (max-width: 500px) {
@@ -193,6 +202,8 @@ nav{
     float: left;
   }
 }
+
+
 
 /* @media screen and (min-width: 2000px) {
   .button_right {

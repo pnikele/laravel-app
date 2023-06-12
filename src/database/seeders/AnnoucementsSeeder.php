@@ -13,6 +13,6 @@ class AnnoucementsSeeder extends Seeder
      */
     public function run(): void
     {
-        Announcements::factory(1)->create();
+        Announcements::factory(5)->create();
     }
 }
