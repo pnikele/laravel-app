@@ -34,13 +34,13 @@ class Handler extends ExceptionHandler
             
         });
 
-        $this->renderable(function (NotFoundHttpException $e, $request) {
-            return redirect()->route('home');
-        });
+        // $this->renderable(function (NotFoundHttpException $e, $request) {
+        //     return redirect()->route('home');
+        // });
 
-        $this->renderable(function (AccessDeniedHttpException $e, $request) {
-            return redirect('/addresses');
-        });
+        // $this->renderable(function (AccessDeniedHttpException $e, $request) {
+        //     return redirect('/addresses');
+        // });
         
     }
     

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AddressesController;
 use App\Http\Controllers\AnnouncementsController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Reader_installationsController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 
@@ -41,6 +42,9 @@ Route::post('/addresses', [AddressesController::class, 'store'])->middleware('au
 Route::get('/addresses/{address}/edit', [AddressesController::class, 'edit'])->middleware('auth');
 Route::get('/addresses/{address}', [AddressesController::class, 'show'])->middleware('auth');
 Route::patch('/addresses/{address}', [AddressesController::class, 'update'])->middleware('auth');
+
+Route::get('/readers', [Reader_installationsController::class, 'index'])->middleware('auth');
+Route::get('/readers/{reader}', [Reader_installationsController::class, 'show'])->middleware('auth');
 
 
 

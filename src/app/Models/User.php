@@ -62,4 +62,14 @@ class User extends Authenticatable
 	    return Address::where('user_id', $this->id)
             ->get();
 	}
+
+    public function accessibleReader_installations()
+	{
+	    return Reader_installation::join('addresses', 'reader_installations.address_id', '=' , 'addresses.id')
+        ->join('users', 'users.id', '=' , 'addresses.user_id')
+            ->where('users.id',$this->id)
+        ->join('readers', 'reader_installations.reader_id', '=', 'readers.id')
+        ->select('addresses.country', 'addresses.county_or_city','addresses.address','users.name', 'users.surname', 'users.email','readers.identifier', 'readers.manufacturer','readers.manufature_date','reader_installations.installation_date','reader_installations.expiration_date','reader_installations.id as readerinst_id')
+        ->get();
+	}
 }

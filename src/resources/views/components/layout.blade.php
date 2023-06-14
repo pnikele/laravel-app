@@ -8,6 +8,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> --}}
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
     <link rel="stylesheet" type="text/css" href="{{url('css/main.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('css/auth.css')}}">
@@ -78,11 +80,10 @@
             {{-- <div id="sidenav" style=" flex:1; background-color:#E9FFFF; box-shadow: 1px 0 5px #888;"></div> --}}
             <div id="placesidenav">
                   <div class="{{ (request()->is('addresses*')) ? 'sidenav_div_active' : 'sidenav_div' }}" onclick="window.location.href ='/addresses';" >
-                    <a style="padding-left: 10px; text-decoration:none;font-weight: bold;" class="sidenav_item" href="#">Adreses</a>
+                    <a style="padding-left: 10px; text-decoration:none;font-weight: bold;" class="sidenav_item" href="/addresses">Adreses</a>
                   </div>
-
-                  <div class="sidenav_div" >
-                    <a style="padding-left: 10px; text-decoration:none;font-weight: bold;" class="sidenav_item"  href="#">Cits</a>
+                  <div class="{{ (request()->is('readers*')) ? 'sidenav_div_active' : 'sidenav_div' }}" onclick="window.location.href ='/readers';" >
+                    <a style="padding-left: 10px; text-decoration:none;font-weight: bold;" class="sidenav_item" href="/readers">Skaitītāji</a>
                   </div>
             </div>
           @endauth

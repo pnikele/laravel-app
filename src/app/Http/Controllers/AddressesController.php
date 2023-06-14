@@ -36,6 +36,8 @@ class AddressesController extends Controller
         ->join('readers', 'reader_installations.reader_id', '=', 'readers.id')
         ->select('users.name', 'users.surname', 'users.email','readers.identifier', 'readers.manufacturer','readers.manufature_date','reader_installations.installation_date','reader_installations.expiration_date')
         ->get();
+
+        
         return view('addresses.show',compact('address','readers'));
     }
 
