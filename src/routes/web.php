@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Reader_installationsController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\AdminAddressesController;
 
 use App\Models\Announcements;
 use Illuminate\Support\Facades\Route;
@@ -28,23 +29,31 @@ Route::get('/about', function () {
 });
 Route::get('/contacts', [ContactController::class, 'index']);
 
-Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
-Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
+Route::group(['middleware'=>'guest'],function(){
+    Route::get('register', [RegisterController::class, 'create']);
+    Route::post('register', [RegisterController::class, 'store']);
+    Route::get('login', [SessionsController::class, 'create'])->name('login');
+    Route::post('login', [SessionsController::class, 'store']);
+});
 
-Route::get('login', [SessionsController::class, 'create'])->name('login')->middleware('guest');
-Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
+Route::group(['middleware'=>'auth'],function(){
+    Route::post('logout', [SessionsController::class, 'destroy']);
+    Route::get('/addresses', [AddressesController::class, 'index']);
+    Route::get('/addresses/create', [AddressesController::class, 'create']);
+    Route::post('/addresses', [AddressesController::class, 'store']);
+    Route::get('/addresses/{address}/edit', [AddressesController::class, 'edit']);
+    Route::get('/addresses/{address}', [AddressesController::class, 'show']);
+    Route::patch('/addresses/{address}', [AddressesController::class, 'update']);
+    Route::get('/readers', [Reader_installationsController::class, 'index']);
+    Route::get('/readers/{reader}', [Reader_installationsController::class, 'show']);
+});
 
-Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
+Route::middleware('can:admin')->group(function () {
+    Route::get('admin/addresses', [AdminAddressesController::class, 'index']);
 
-Route::get('/addresses', [AddressesController::class, 'index'])->middleware('auth');
-Route::get('/addresses/create', [AddressesController::class, 'create'])->middleware('auth');
-Route::post('/addresses', [AddressesController::class, 'store'])->middleware('auth');
-Route::get('/addresses/{address}/edit', [AddressesController::class, 'edit'])->middleware('auth');
-Route::get('/addresses/{address}', [AddressesController::class, 'show'])->middleware('auth');
-Route::patch('/addresses/{address}', [AddressesController::class, 'update'])->middleware('auth');
+});
 
-Route::get('/readers', [Reader_installationsController::class, 'index'])->middleware('auth');
-Route::get('/readers/{reader}', [Reader_installationsController::class, 'show'])->middleware('auth');
+
 
 
 
