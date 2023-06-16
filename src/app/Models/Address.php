@@ -14,6 +14,7 @@ class Address extends Model
         'country',
         'county_or_city',
         'address',
+        'user_id',
     ];
     public function reader_installations()
     {
@@ -32,6 +33,11 @@ class Address extends Model
     public function path()
     {
         return "/addresses/{$this->id}";
+    }
+
+    public function pathid()
+    {
+        return "/{$this->id}";
     }
 
 

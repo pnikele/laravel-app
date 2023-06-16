@@ -41,7 +41,12 @@
                     <a href="/contacts">Kontakti</a>
                 </div>
                 @auth
-
+                {{-- @can('admin')
+                  <div class="button" id="button-nav" onclick="window.location.href ='/#';" style="cursor: pointer;">
+                    <div id="circle"></div>
+                    <a href="#">Admin</a>
+                  </div>
+                  @endcan --}}
                   <div class="button_right"  id="button-nav" x-data="{}"  @click.prevent="document.querySelector('#logout-form').submit()" style="cursor: pointer;">
                       <div id="circle"></div>
                       <a href="/logout" x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()">Izrakstīties</a>
@@ -79,12 +84,25 @@
             
             {{-- <div id="sidenav" style=" flex:1; background-color:#E9FFFF; box-shadow: 1px 0 5px #888;"></div> --}}
             <div id="placesidenav">
+                @can('user')
                   <div class="{{ (request()->is('addresses*')) ? 'sidenav_div_active' : 'sidenav_div' }}" onclick="window.location.href ='/addresses';" >
                     <a style="padding-left: 10px; text-decoration:none;font-weight: bold;" class="sidenav_item" href="/addresses">Adreses</a>
                   </div>
                   <div class="{{ (request()->is('readers*')) ? 'sidenav_div_active' : 'sidenav_div' }}" onclick="window.location.href ='/readers';" >
                     <a style="padding-left: 10px; text-decoration:none;font-weight: bold;" class="sidenav_item" href="/readers">Skaitītāji</a>
                   </div>
+                @endcan
+                @can('admin')
+                  <div class="{{ (request()->is('admin/addresses*')) ? 'sidenav_div_active' : 'sidenav_div' }}" onclick="window.location.href ='/admin/addresses';" >
+                    <a style="padding-left: 10px; text-decoration:none;font-weight: bold;" class="sidenav_item" href="/admin/addresses">Adreses</a>
+                  </div>
+                  <div class="{{ (request()->is('readers*')) ? 'sidenav_div_active' : 'sidenav_div' }}" onclick="window.location.href ='/readers';" >
+                    <a style="padding-left: 10px; text-decoration:none;font-weight: bold;" class="sidenav_item" href="/readers">Skaitītāji</a>
+                  </div>
+                  <div class="{{ (request()->is('admin/users*')) ? 'sidenav_div_active' : 'sidenav_div' }}" onclick="window.location.href ='/admin/users';" >
+                    <a style="padding-left: 10px; text-decoration:none;font-weight: bold;" class="sidenav_item" href="/admin/users">Lietotāji</a>
+                  </div>
+                @endcan
             </div>
           @endauth
           {{ $slot }}

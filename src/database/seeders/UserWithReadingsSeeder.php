@@ -27,13 +27,13 @@ class UserWithReadingsSeeder extends Seeder
 
         // ]);
 
-        // $user= User::factory()->create([
-        //     'name' => "Jānis",
-        //     'surname' => "Testiņš",
-        //     'email' => "janis.testins@gmail.com",
-        //     'password' => "12345678",
+        $user= User::factory()->create([
+            'name' => "Anna",
+            'surname' => "Liepiņa",
+            'email' => "anna.liepina@gmail.com",
+            'password' => "12345678",
 
-        // ]);
+        ]);
 
         // Address::factory(5)->create([
         //     'user_id' => $user->id

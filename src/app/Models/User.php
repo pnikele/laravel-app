@@ -23,6 +23,7 @@ class User extends Authenticatable
         'surname',
         'email',
         'password',
+        'is_admin',
     ];
 
     /**
@@ -71,5 +72,11 @@ class User extends Authenticatable
         ->join('readers', 'reader_installations.reader_id', '=', 'readers.id')
         ->select('addresses.country', 'addresses.county_or_city','addresses.address','users.name', 'users.surname', 'users.email','readers.identifier', 'readers.manufacturer','readers.manufature_date','reader_installations.installation_date','reader_installations.expiration_date','reader_installations.id as readerinst_id')
         ->get();
+	}
+
+    public function isAdministrator()
+	{
+	    return User::where('is_admin', 1)
+            ->get();
 	}
 }

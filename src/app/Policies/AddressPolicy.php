@@ -19,6 +19,15 @@ class AddressPolicy
      * @param  Address $address
      * @return bool
      */
+    public function before(User $user): bool|null
+    {   
+    if ($user->isAdministrator()) {
+        return true;
+    }
+ 
+    return null;
+    }
+
     public function update(User $user, Address $address)
     {
         return $user->is($address->user);

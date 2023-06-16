@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AddressesController;
+use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\AnnouncementsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Reader_installationsController;
@@ -50,7 +51,17 @@ Route::group(['middleware'=>'auth'],function(){
 
 Route::middleware('can:admin')->group(function () {
     Route::get('admin/addresses', [AdminAddressesController::class, 'index']);
+    Route::get('admin/addresses/create', [AdminAddressesController::class, 'create']);
+    Route::post('admin/addresses', [AdminAddressesController::class, 'store']);
+    Route::get('admin/addresses/{address}', [AdminAddressesController::class, 'show']);
+    Route::get('admin/addresses/{address}/edit', [AdminAddressesController::class, 'edit']);
+    Route::patch('admin/addresses/{address}', [AdminAddressesController::class, 'update']);
 
+    Route::get('admin/users', [AdminUsersController::class, 'index']);
+    Route::get('admin/users/create', [AdminUsersController::class, 'create']);
+    Route::get('admin/users/{user}', [AdminUsersController::class, 'show']);
+    Route::get('admin/users/{user}/edit', [AdminUsersController::class, 'edit']);
+    Route::patch('admin/users/{user}', [AdminUsersController::class, 'update']);
 });
 
 

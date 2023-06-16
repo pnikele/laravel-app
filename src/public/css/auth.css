@@ -148,3 +148,12 @@ cursor: pointer;
   }
 }
 
+#myInput {
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 12px 20px 12px 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+

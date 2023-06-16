@@ -27,6 +27,7 @@ class RegisterController extends Controller
             'surname.required' => 'Uzvārda lauks ir jāaizpilda obligāti.',
             'password.min' =>'Parolei jābūt vismaz 8 simboliem',
             'password_confirmation.required' => 'Paroles atkārtošanas lauks jāaizpilda obligāti',
+            'email.unique' => 'Šis e-pasts jau ir aizņemts.'
     
         ]);
 
