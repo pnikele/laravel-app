@@ -21,7 +21,7 @@ class Meter_readingFactory extends Factory
         return [
             'reader_installation_id'=>fake()->numberBetween(100,10000000),
             'reading'=>fake()->numberBetween(100,10000000),
-            'reading_datetime'=>fake()->dateTimeBetween('-5 months','+2 years')
+            'reading_datetime'=>fake()->dateTimeBetween('-2 years','now')
 
         ];
     }

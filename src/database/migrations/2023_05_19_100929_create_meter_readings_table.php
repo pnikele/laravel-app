@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('meter_readings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('reader_installation_id')->constrained()->cascadeOnUpdate()->restrictOnDelete();
-            $table->integer('reading');
+            $table->decimal('reading',8,3);
             $table->dateTime('reading_datetime');
             $table->timestamps();
         });
