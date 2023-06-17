@@ -14,7 +14,6 @@
                                 <th style="text-align: left" >Uzstādīšanas datums</th>
                                 <th style="text-align: left" >Nākamās apkopes datums</th>
                                 <th style="text-align: left" >Adrese</th>
-
                             </tr>
                         </thead>
                         <tbody>

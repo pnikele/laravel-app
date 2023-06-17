@@ -20,7 +20,6 @@
                 <div style="margin-top: 10px">
                     <h2>Skaitītāji adresei</h2>
                     {{-- list of skaititaji --}}
-                    @forelse ($readers as $reader)
                         <div class="form-group row">
                             <table id="table2" style="width: 100%">
                                 <thead>
@@ -33,29 +32,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($readers as $reader)
                                             <tr>
                                             <td >{{ $reader->identifier}}</td>
                                             <td >{{ $reader->manufacturer}}</td>
                                             <td >{{ $reader->manufature_date}}</td>
                                             <td >{{ $reader->installation_date}}</td>
                                             <td >{{ $reader->expiration_date}}</td>
-                                            
-                                            {{-- <td >{{ $address->address}}</td> --}}
-                                            {{-- <td>
-                                                <a style="text-decoration: none;" href="{{$address->path().'/edit'}}">Labot</a>
-                                            </td> --}}
                                         </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                             @if($readers->count() == 0)
-                            <div style="width: 100%; background-color:#f2f2f2;margin-top:5px;">
-                                <h2 style="padding-left:5px">Šajai adresei nav uzstādītu skaitītāju.</h2>
-                            </div>
+                                <div style="width: 100%;margin-top:5px;">
+                                    <h2 style="padding-left:5px">Šajai adresei nav skaitītāju.</h2>
+                                </div>
+                            @endif
                         </div>
-                    @endif
-                    @empty
-                        <div>Šajai adresei nav skaitītāju.</div>
-                    @endforelse
                 </div>
             </div>
         </div>

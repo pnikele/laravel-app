@@ -5,7 +5,7 @@
             <div style="min-height:200px; padding:20px;" id="card">
                 <div class="form-group row">
                     <h2>Lietotāja dati</h2>
-                    <table id="table" style="width: 100%">
+                    <table id="table2" style="width: 100%">
                         <thead>
                             <tr>
                                 <th style="text-align: left">Id</th>

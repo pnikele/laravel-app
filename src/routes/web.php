@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AddressesController;
+use App\Http\Controllers\AdminReadersController;
+use App\Http\Controllers\AdminReaders_installationsController;
 use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\AnnouncementsController;
 use App\Http\Controllers\ContactController;
@@ -62,6 +64,22 @@ Route::middleware('can:admin')->group(function () {
     Route::get('admin/users/{user}', [AdminUsersController::class, 'show']);
     Route::get('admin/users/{user}/edit', [AdminUsersController::class, 'edit']);
     Route::patch('admin/users/{user}', [AdminUsersController::class, 'update']);
+
+    Route::get('admin/readers', [AdminReadersController::class, 'index']);
+    Route::get('admin/readers/create', [AdminReadersController::class, 'create']);
+    Route::post('admin/readers', [AdminReadersController::class, 'store']);
+    Route::get('admin/readers/{reader}', [AdminReadersController::class, 'show']);
+    Route::get('admin/readers/{reader}/edit', [AdminReadersController::class, 'edit']);
+    Route::patch('admin/readers/{reader}', [AdminReadersController::class, 'update']);
+
+    Route::get('admin/reader_installations', [AdminReaders_installationsController::class, 'index']);
+    Route::get('admin/reader_installations/create', [AdminReaders_installationsController::class, 'create']);
+    Route::post('admin/reader_installations', [AdminReaders_installationsController::class, 'store']);
+    Route::get('admin/reader_installations/{readers_installation}', [AdminReaders_installationsController::class, 'show']);
+    Route::get('admin/reader_installations/{readers_installation}/edit', [AdminReaders_installationsController::class, 'edit']);
+    Route::patch('admin/reader_installations/{readers_installation}', [AdminReaders_installationsController::class, 'update']);
+
+
 });
 
 

@@ -93,14 +93,17 @@
                   </div>
                 @endcan
                 @can('admin')
+                <div class="{{ (request()->is('admin/users*')) ? 'sidenav_div_active' : 'sidenav_div' }}" onclick="window.location.href ='/admin/users';" >
+                  <a style="padding-left: 10px; text-decoration:none;font-weight: bold;" class="sidenav_item" href="/admin/users">Lietotāji</a>
+                </div>
                   <div class="{{ (request()->is('admin/addresses*')) ? 'sidenav_div_active' : 'sidenav_div' }}" onclick="window.location.href ='/admin/addresses';" >
                     <a style="padding-left: 10px; text-decoration:none;font-weight: bold;" class="sidenav_item" href="/admin/addresses">Adreses</a>
                   </div>
-                  <div class="{{ (request()->is('readers*')) ? 'sidenav_div_active' : 'sidenav_div' }}" onclick="window.location.href ='/readers';" >
-                    <a style="padding-left: 10px; text-decoration:none;font-weight: bold;" class="sidenav_item" href="/readers">Skaitītāji</a>
+                  <div class="{{ (request()->is('admin/readers*')) ? 'sidenav_div_active' : 'sidenav_div' }}" onclick="window.location.href ='/admin/readers';" >
+                    <a style="padding-left: 10px; text-decoration:none;font-weight: bold;" class="sidenav_item" href="/admin/readers">Skaitītāji</a>
                   </div>
-                  <div class="{{ (request()->is('admin/users*')) ? 'sidenav_div_active' : 'sidenav_div' }}" onclick="window.location.href ='/admin/users';" >
-                    <a style="padding-left: 10px; text-decoration:none;font-weight: bold;" class="sidenav_item" href="/admin/users">Lietotāji</a>
+                  <div class="{{ (request()->is('admin/reader_installations*')) ? 'sidenav_div_active' : 'sidenav_div' }}" onclick="window.location.href ='/admin/reader_installations';" >
+                    <a style="padding-left: 10px; text-decoration:none;font-weight: bold;" class="sidenav_item" href="/admin/reader_installations">Skaitītāju instalācijas</a>
                   </div>
                 @endcan
             </div>
